@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using DotNet_Bookstore.Models;
 
 namespace DotNet_Bookstore.Data
 {
@@ -9,5 +10,6 @@ namespace DotNet_Bookstore.Data
             : base(options)
         {
         }
+        public DbSet<DotNet_Bookstore.Models.Category> Category { get; set; } = default!;
     }
 }

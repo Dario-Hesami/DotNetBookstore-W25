@@ -14,6 +14,6 @@ namespace DotNet_Bookstore.Models
         public string Name { get; set; }
 
         // Navigation property - child reference
-        public List<Book> Books { get; set; }
+        public List<Book>? Books { get; set; }
 }
 }

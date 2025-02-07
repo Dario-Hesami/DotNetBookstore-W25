@@ -1,15 +1,19 @@
 ﻿@model IEnumerable<DotNet_Bookstore.Models.Book>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Books";
+}
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/datatables.min.css" />
 }
 
-<h1>Index</h1>
+<h1>Books</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table" id="bookTable">
     <thead>
         <tr>
             <th>
@@ -63,3 +67,27 @@
 }
     </tbody>
 </table>
+
+@* Section for page-specific JavaScript *@
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#bookTable').DataTable({
+                "columnDefs": [
+                    {
+                        "type": "num-fmt",  // Use num-fmt to correctly sort decimals
+                        "targets": [3]      // Price column (index 3) will be treated as numeric
+                    },
+                    {
+                        "orderable": false,  // Disable sorting for the Image column (index 2)
+                        "targets": [2]       // Image column is the 3rd column (index 2)
+                    },
+                    {
+                        "orderable": false,  // Disable sorting for the MatureContent column (index 4)
+                        "targets": [4]       // MatureContent column is the 3rd column (index 2)
+                    }
+                ]
+            });
+        });
+    </script>
+}

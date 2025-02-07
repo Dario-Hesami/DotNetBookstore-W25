@@ -16,13 +16,13 @@ namespace DotNet_Bookstore.Models
 
         [Required]
 
-        [MaxLength(100)]
+        [MaxLength(255)]
 
         public string Author { get; set; }
 
         [Required]
 
-        [MaxLength(150)]
+        [MaxLength(200)]
 
         public string Title { get; set; }
 

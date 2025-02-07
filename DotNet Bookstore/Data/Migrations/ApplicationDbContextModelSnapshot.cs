@@ -56,7 +56,7 @@ namespace DotNet_Bookstore.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("DotNet_Bookstore.Models.CartItem", b =>
@@ -84,7 +84,7 @@ namespace DotNet_Bookstore.Data.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("CartItems");
+                    b.ToTable("CartItems", (string)null);
                 });
 
             modelBuilder.Entity("DotNet_Bookstore.Models.Category", b =>
@@ -101,7 +101,7 @@ namespace DotNet_Bookstore.Data.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("DotNet_Bookstore.Models.Order", b =>
@@ -160,7 +160,7 @@ namespace DotNet_Bookstore.Data.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("DotNet_Bookstore.Models.OrderDetail", b =>
@@ -189,7 +189,7 @@ namespace DotNet_Bookstore.Data.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

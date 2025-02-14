@@ -20,3 +20,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#book-img {
+    max-height: 8rem;
+}

@@ -5,7 +5,7 @@
 }
 @section Styles
 {
-    <link rel="stylesheet" href="~/css/datatables.min.css" />
+<link rel="stylesheet" href="~/css/dataTables.dataTables.min.css" />
 }
 
 <h1>Books</h1>
@@ -23,7 +23,7 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Image)
+                @* @Html.DisplayNameFor(model => model.Image) *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Price)
@@ -38,16 +38,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @if (item.Image != null)
+                    {
+                        <img src="~/img/books/@item.Image" alt="Book Cover" class="img-fluid" id="book-img" />
+                    }
+                    else
+                    {
+                        <img src="~/img/books/bookcover-placeholder.jpg" alt="Book Cover" class="img-fluid" id="book-img" />
+                    }
+                    @* @Html.DisplayFor(modelItem => item.Image) *@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)

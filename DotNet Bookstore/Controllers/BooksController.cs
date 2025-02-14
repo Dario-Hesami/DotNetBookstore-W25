@@ -96,7 +96,7 @@ namespace DotNet_Bookstore.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookId,Author,Title,Image,Price,MatureContent,CategoryId")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,Author,Title,Price,MatureContent,CategoryId")] Book book, IFormFile? image, string? CurrentImage)
         {
             if (id != book.BookId)
             {
@@ -107,6 +107,20 @@ namespace DotNet_Bookstore.Controllers
             {
                 try
                 {
+                    // upload image if there is one
+                    if (image != null)
+                    {
+                        book.Image = UploadImage(image);
+                    }
+                    else
+                    {
+                        // keep the current image if no new image is uploaded
+                        // if this book already has an image
+                        if (CurrentImage != null)
+                        {
+                            book.Image = CurrentImage;
+                        }
+                    }
                     _context.Update(book);
                     await _context.SaveChangesAsync();
                 }

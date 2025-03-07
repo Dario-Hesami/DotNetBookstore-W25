@@ -11,7 +11,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace DotNet_Bookstore.Controllers
 {
-    [Authorize]
+    //[Authorize]
+    [Authorize(Roles = "Administrator")]
     public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -29,6 +30,7 @@ namespace DotNet_Bookstore.Controllers
 
         // GET: Categories/Details/5
         [AllowAnonymous]
+        //[Authorize(Roles = "Customer")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,6 +49,8 @@ namespace DotNet_Bookstore.Controllers
         }
 
         // GET: Categories/Create
+        //[Authorize]
+        //[Authorize(Roles = "Customer")]
         public IActionResult Create()
         {
             return View();
@@ -55,6 +59,8 @@ namespace DotNet_Bookstore.Controllers
         // POST: Categories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[Authorize]
+        //[Authorize(Roles = "Customer")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CategoryId,Name")] Category category)

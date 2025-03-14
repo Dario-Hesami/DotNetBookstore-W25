@@ -24,3 +24,7 @@ body {
 #book-img {
     max-height: 8rem;
 }
+
+.card-body > a {
+    text-decoration:none;
+}

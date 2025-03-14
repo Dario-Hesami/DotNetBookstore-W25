@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DotNet_Bookstore.Data;
 using DotNet_Bookstore.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DotNet_Bookstore.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class BooksController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,6 +30,7 @@ namespace DotNet_Bookstore.Controllers
         }
 
         // GET: Books/Details/5
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

@@ -15,6 +15,21 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+//*** Note ***
+// "appsettings.json" is not pushed to the repository for security reasons.
+// To get the app running, add "appsettings.json" to the project.
+// Ask the course instructor about this file.
+
+// enable Google Auth before our app starts
+// access the cinfig values in appsettings.json
+var configuration = builder.Configuration;
+builder.Services.AddAuthentication()
+    .AddGoogle(options =>
+    {
+        options.ClientId = configuration["Authentication:Google:ClientId"];
+        options.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+    });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

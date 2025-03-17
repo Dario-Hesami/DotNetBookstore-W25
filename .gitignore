@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/DotNet Bookstore/appsettings.json
+/DotNet Bookstore/appsettings.Development.json

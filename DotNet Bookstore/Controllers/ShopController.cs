@@ -1,5 +1,8 @@
 ﻿using DotNet_Bookstore.Data;
 using Microsoft.AspNetCore.Mvc;
+using DotNet_Bookstore.Models;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace DotNet_Bookstore.Controllers
 {

@@ -28,3 +28,7 @@ body {
 .card-body > a {
     text-decoration:none;
 }
+
+.cart-images {
+    max-height: 5rem;
+}
